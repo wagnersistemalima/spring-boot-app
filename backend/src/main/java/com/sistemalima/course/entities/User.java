@@ -1,15 +1,22 @@
 package com.sistemalima.course.entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "tb_user")
 public class User implements Serializable{
 	private static final long serialVersionUID = 1L;
+	
+	// atributos basicos
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,9 +26,18 @@ public class User implements Serializable{
 	private String phone;
 	private String password;
 	
+	// associações um cliente pode ter varios pedidos / um para muitos
+	
+	@OneToMany(mappedBy = "client")                                 // chave estrangeira no banco de dados
+	List<Order> orders = new ArrayList<>();
+	
+	// construtor padrão
+	
 	public User() {
 		
 	}
+	
+	// construtor com argumentos
 
 	public User(Long id, String name, String email, String phone, String password) {
 		this.id = id;
@@ -30,6 +46,8 @@ public class User implements Serializable{
 		this.phone = phone;
 		this.password = password;
 	}
+	
+	// metodos getters & setters
 
 	public Long getId() {
 		return id;
@@ -70,6 +88,13 @@ public class User implements Serializable{
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	
+
+	public List<Order> getOrders() {
+		return orders;
+	}
+	
+	// metodos hashCode & equals comparando por id
 
 	@Override
 	public int hashCode() {
