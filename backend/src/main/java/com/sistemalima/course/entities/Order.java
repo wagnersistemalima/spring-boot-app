@@ -12,7 +12,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.databind.jsonFormatVisitors.JsonFormatTypes;
+import com.sistemalima.course.entities.enums.OrderStatus;
 
 @Entity
 @Table(name = "tb_order")
@@ -30,11 +30,16 @@ public class Order implements Serializable{
 	private Instant moment;
 	
 	
+	private Integer orderStatus;
+	
+	
 	// associação muitos para 1   
 	
 	@ManyToOne
 	@JoinColumn(name = "client_id")                      // chave estrangeira no banco de dados
 	private User client;
+	
+	
 	
 	// construtor padrão
 	
@@ -44,10 +49,11 @@ public class Order implements Serializable{
 	
 	// construtor com argumentos
 
-	public Order(Long id, Instant moment, User client) {
+	public Order(Long id, Instant moment, OrderStatus orderStatus,  User client) {
 		super();
 		this.id = id;
 		this.moment = moment;
+		setOrderStatus(orderStatus);
 		this.client = client;
 	}
 	
@@ -67,6 +73,18 @@ public class Order implements Serializable{
 
 	public void setMoment(Instant moment) {
 		this.moment = moment;
+	}
+	
+
+	public OrderStatus getOrderStatus() {
+		return OrderStatus.valueOf(orderStatus);
+	}
+
+	public void setOrderStatus(OrderStatus orderStatus) {
+		if (orderStatus != null) {
+			this.orderStatus = orderStatus.getCode();
+		}
+		
 	}
 
 	public User getClient() {
