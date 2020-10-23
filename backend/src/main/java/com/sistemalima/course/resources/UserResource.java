@@ -12,9 +12,9 @@ import com.sistemalima.course.entities.User;
 public class UserResource {                                            // controlador Rest
 	
 	@GetMapping
-	public ResponseEntity<User> findAll() {
+	public ResponseEntity<User> findAll() {                 // 1º end point
 		User user1 = new User(1L, "Maria Silva", "maria@gmail.com", "83 93885455", "123");
-		return ResponseEntity.ok().body(user1);
+		return ResponseEntity.ok().body(user1);                      // retornar uma resposta 200 com sucesso
 	}
 
 }
