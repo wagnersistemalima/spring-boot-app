@@ -6,27 +6,29 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.sistemalima.course.entities.User;
-import com.sistemalima.course.repositories.UserRepository;
+import com.sistemalima.course.entities.Order;
+import com.sistemalima.course.repositories.OrderRepository;
 
 @Service
-public class UserService {
+public class OrderService {
 	
 	// dependencia
 	
 	@Autowired
-	private UserRepository repository;
+	private OrderRepository repository;
 	
+	// metodo buscar todos 
 	
-	// metodo buscar todos
-	public List<User> findAll() {
+	public List<Order> findAll() {
 		return repository.findAll();
 	}
 	
 	// metodo buscar por id
-	public User findById(Long id) {
-		Optional<User> obj = repository.findById(id);
+	public Order findById(Long id) {
+		Optional <Order> obj = repository.findById(id);
 		return obj.get();
 	}
+	
+	
 
 }

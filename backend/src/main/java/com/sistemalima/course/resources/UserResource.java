@@ -16,16 +16,21 @@ import com.sistemalima.course.services.UserService;
 @RequestMapping(value = "/users")
 public class UserResource {                                            // controlador Rest
 	
+	// dependência
+	
 	@Autowired
 	private UserService service;
 	
+	// 1º end point / buscar todos / Get   - retorna uma resposta (200) com suscesso
+	
 	@GetMapping
-	public ResponseEntity <List<User>> findAll() {                 // 1º end point buscar todos
+	public ResponseEntity <List<User>> findAll() {                 
 		List<User> list = service.findAll();
-		return ResponseEntity.ok().body(list);                      // retornar uma resposta 200 com sucesso
+		return ResponseEntity.ok().body(list);                      
 	}
 	
-	// metodo buscar por id
+	// 2º end point / buscar por id / Get  - retorna uma resposta 200 com sucesso
+	
 	@GetMapping(value = "/{id}")
 	public ResponseEntity<User> findById(@PathVariable Long id) {
 		User obj = service.findById(id);
