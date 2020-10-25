@@ -28,7 +28,7 @@ public class User implements Serializable{
 	private String phone;
 	private String password;
 	
-	// associações um cliente pode ter varios pedidos / um para muitos
+	// associações um cliente pode ter varios pedidos / Relação um para muitos
 	
 	@JsonIgnore
 	@OneToMany(mappedBy = "client")                                 // chave estrangeira no banco de dados
