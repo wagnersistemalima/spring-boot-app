@@ -9,10 +9,12 @@ import org.springframework.stereotype.Service;
 import com.sistemalima.course.entities.User;
 import com.sistemalima.course.repositories.UserRepository;
 
+// regras de negocio
+
 @Service
 public class UserService {
 	
-	// dependencia
+	// dependencia para o repository
 	
 	@Autowired
 	private UserRepository repository;

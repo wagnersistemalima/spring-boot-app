@@ -18,7 +18,7 @@ import com.sistemalima.course.services.OrderService;
 @RequestMapping(value = "/orders")
 public class OrderResource {
 	
-	// dependência
+	// dependência para o service
 	
 	@Autowired
 	private OrderService service;

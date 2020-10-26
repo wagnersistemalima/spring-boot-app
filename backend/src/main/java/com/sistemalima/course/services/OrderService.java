@@ -1,6 +1,7 @@
 package com.sistemalima.course.services;
 
 import java.util.List;
+
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,10 +10,12 @@ import org.springframework.stereotype.Service;
 import com.sistemalima.course.entities.Order;
 import com.sistemalima.course.repositories.OrderRepository;
 
+// regras de negocio
+
 @Service
 public class OrderService {
 	
-	// dependencia
+	// dependencia para o repository
 	
 	@Autowired
 	private OrderRepository repository;

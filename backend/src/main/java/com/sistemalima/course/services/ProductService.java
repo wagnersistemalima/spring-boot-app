@@ -6,29 +6,29 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.sistemalima.course.entities.Category;
-import com.sistemalima.course.repositories.CategoryRepository;
+import com.sistemalima.course.entities.Product;
+import com.sistemalima.course.repositories.ProductRepository;
 
 // regras de negocio
 
 @Service
-public class CategoryService {
+public class ProductService {
 	
 	// dependencia para o repository
 	
 	@Autowired
-	private CategoryRepository repository;
+	private ProductRepository repository;
 	
-	// metodos buscar todos
+	// metodo buscar todos
 	
-	public List<Category> findAll() {
+	public List<Product> findAll() {
 		return repository.findAll();
 	}
 	
 	// metodo buscar por id
 	
-	public Category findById(Long id) {
-		Optional<Category> obj = repository.findById(id);
+	public Product findBayId(Long id) {
+		Optional<Product> obj = repository.findById(id);
 		return obj.get();
 	}
 

@@ -9,33 +9,33 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.sistemalima.course.entities.Category;
-import com.sistemalima.course.services.CategoryService;
+import com.sistemalima.course.entities.Product;
+import com.sistemalima.course.services.ProductService;
 
-// Controlador Rest
+// controlador Rest
 
 @RestController
-@RequestMapping(value = "/categories")
-public class CategoryResource {
+@RequestMapping(value = "/products")
+public class ProductResource {
 	
 	// dependencia para o service
 	
 	@Autowired
-	private CategoryService service;
+	private ProductService service;
 	
-	// 1º end point / buscar todos / retornar uma resposta http 200 com suscesso
+	// 1º end point / buscar todos / retorna uma resposta (200) com suscesso
 	
 	@GetMapping
-	public ResponseEntity <List<Category>> findAll() {
-		List<Category> list = service.findAll();
+	public ResponseEntity <List<Product>> findAll() {
+		List<Product> list = service.findAll();
 		return ResponseEntity.ok().body(list);
 	}
 	
-	// 2º end point / buscar por id / retornar uma resposta http 200 com sucesso
+	// 2º end point / buscar por id / retorna uma resposta (200) com suscesso
 	
 	@GetMapping(value = "/{id}")
-	public ResponseEntity<Category> findById(@PathVariable Long id) {
-		Category obj = service.findById(id);
+	public ResponseEntity<Product> findById(@PathVariable Long id) {
+		Product obj = service.findBayId(id);
 		return ResponseEntity.ok().body(obj);
 	}
 

@@ -12,11 +12,13 @@ import org.springframework.web.bind.annotation.RestController;
 import com.sistemalima.course.entities.User;
 import com.sistemalima.course.services.UserService;
 
+// controlador Rest
+
 @RestController
 @RequestMapping(value = "/users")
-public class UserResource {                                            // controlador Rest
+public class UserResource {                                           
 	
-	// dependência
+	// dependência para o service
 	
 	@Autowired
 	private UserService service;
