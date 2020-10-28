@@ -6,6 +6,7 @@ import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.sistemalima.course.entities.pk.OrderItemPk;
 
 @Entity
@@ -16,7 +17,7 @@ public class OrderItem implements Serializable{
 	// atributo identificador
 	
 	@EmbeddedId
-	private OrderItemPk id;
+	private OrderItemPk id = new OrderItemPk();
 	
 	// atributos basicos
 	
@@ -41,6 +42,7 @@ public class OrderItem implements Serializable{
 	
 	// Getters & setters das chaves compostas
 	
+	@JsonIgnore
 	public Order getOrder() {
 		return id.getOrder();
 	}

@@ -16,7 +16,7 @@ public class OrderItemPk implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	
-	// associação para as dias classes Order e Product
+	// associação para as classes Order e Product
 	
 	@ManyToOne
 	@JoinColumn(name = "order_id")
