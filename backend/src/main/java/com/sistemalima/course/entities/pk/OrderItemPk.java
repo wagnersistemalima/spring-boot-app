@@ -18,11 +18,11 @@ public class OrderItemPk implements Serializable{
 	
 	// associação para as classes Order e Product
 	
-	@ManyToOne
+	@ManyToOne                                     // muitos para 1 com o pedido
 	@JoinColumn(name = "order_id")
 	private Order order;
 	
-	@ManyToOne
+	@ManyToOne                                    
 	@JoinColumn(name = "product_id")
 	private Product product;
 	
